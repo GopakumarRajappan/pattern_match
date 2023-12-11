@@ -1,5 +1,5 @@
 def check_pattern(input_pattern):
-    ## First check if the count of '(' and ')' are same. If not, no return False. 
+    ## First check if the count of '(' and ')' are same. If not, return False. 
     count_opening_braces = 0
     count_closing_braces = 0
     for char in input_pattern:
