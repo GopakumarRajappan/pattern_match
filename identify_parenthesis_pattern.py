@@ -45,6 +45,12 @@ def check_pattern(input_pattern):
             return False
 
 if __name__ == '__main__':
-    input_pattern = input("Enter the string pattern: ").strip()
-    checked_result = check_pattern(input_pattern)
-    print(checked_result)
+    try:
+        input_pattern = input("Enter the string pattern: ").strip()
+        for char in input_pattern:
+            if char not in ('(', ')'):
+                raise ValueError("Only '(' and ')' allowed in the input pattern")
+        checked_result = check_pattern(input_pattern)
+        print(checked_result)
+    except ValueError as e:
+        print(f"{e.args[0]}")
