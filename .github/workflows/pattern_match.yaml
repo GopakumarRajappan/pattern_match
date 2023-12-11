@@ -1,0 +1,31 @@
+name: Pattern match application
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  Execute_code:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+
+    - name: Run Python code
+      run: python identify_parenthesis_pattern.py
+
+    - name: Run unittests
+      run: python -m unittest test_parenthesis_pattern.py
